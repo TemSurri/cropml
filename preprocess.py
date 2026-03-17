@@ -2,9 +2,11 @@ import tensorflow as tf
 import numpy as np
 import json
 import os
+from dotenv import load_dotenv
 
-
-
+# Loading dotenv
+load_dotenv()
+dataset_root = os.getenv("DATASET_ROOT")
 # Create Metadata list 
 
 ANOMALY_NAMES = [
@@ -15,7 +17,7 @@ ANOMALY_NAMES = [
     "nutrient_deficiency"
 ]
 
-DATASET_ROOT = "/Users/tembat/Desktop/data2019_miniscale"
+DATASET_ROOT = dataset_root
 
 NUM_ANOMALIES = 5
 IMAGE_SIZE = 512
