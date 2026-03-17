@@ -1,0 +1,69 @@
+{
+    "image_count": 22627,
+    "label_count": {
+        "planter_skip": 6274,
+        "water": 5108,
+        "weed_cluster": 30198,
+        "drydown": 0,
+        "waterway": 2252,
+        "storm_damage": 0,
+        "double_plant": 0,
+        "nutrient_deficiency": 12067,
+        "endrow": 0
+    },
+    "min_image_size": [
+        512,
+        512
+    ],
+    "max_image_size": [
+        512,
+        512
+    ],
+    "min_image_area(px^2)": 51,
+    "max_image_area(px^2)": 512,
+    "avg_image_area(px^2)": 486,
+    "max_label_count": {
+        "planter_skip": 27,
+        "water": 10,
+        "weed_cluster": 82,
+        "drydown": 0,
+        "waterway": 4,
+        "storm_damage": 0,
+        "double_plant": 0,
+        "nutrient_deficiency": 10,
+        "endrow": 0
+    },
+    "avg_label_count": {
+        "planter_skip": 0.277,
+        "water": 0.226,
+        "weed_cluster": 1.335,
+        "drydown": 0.0,
+        "waterway": 0.1,
+        "storm_damage": 0.0,
+        "double_plant": 0.0,
+        "nutrient_deficiency": 0.533,
+        "endrow": 0.0
+    },
+    "max_label_area(px^2)": {
+        "planter_skip": 429,
+        "water": 499,
+        "weed_cluster": 499,
+        "drydown": 0,
+        "waterway": 432,
+        "storm_damage": 0,
+        "double_plant": 0,
+        "nutrient_deficiency": 499,
+        "endrow": 0
+    },
+    "avg_label_area(px^2)": {
+        "planter_skip": 72,
+        "water": 241,
+        "weed_cluster": 130,
+        "drydown": 0,
+        "waterway": 158,
+        "storm_damage": 0,
+        "double_plant": 0,
+        "nutrient_deficiency": 193,
+        "endrow": 0
+    }
+}
