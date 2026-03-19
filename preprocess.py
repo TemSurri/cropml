@@ -174,29 +174,3 @@ def preprocess_batch(batch_samples, training=True):
     batch_valid_masks = tf.stack(valid_masks, axis=0)
 
     return batch_images, batch_masks, batch_valid_masks
-
-
-
-
-# Test batching + preprocessing flow
-
-print("train:", len(train_samples))
-print("val:", len(val_samples))
-print("test:", len(test_samples))
-print(train_samples[0])
-
-BATCH_SIZE = 2
-
-train_batches = get_metadata_batches(train_samples, BATCH_SIZE)
-
-print("num train batches:", len(train_batches))
-print("first batch size:", len(train_batches[0]))
-
-batch_images, batch_masks, batch_valid_masks = preprocess_batch(
-    train_batches[0],
-    training=True
-)
-
-print("batch_images shape:", batch_images.shape)
-print("batch_masks shape:", batch_masks.shape)
-print("batch_valid_masks shape:", batch_valid_masks.shape)

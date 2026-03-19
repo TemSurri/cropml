@@ -81,6 +81,7 @@ def train_step(model, optimizer, batch_images, batch_masks, batch_valid_masks):
         loss = masked_bce_loss(batch_masks, predictions, batch_valid_masks)
 
     gradients = tape.gradient(loss, model.trainable_variables)
+    #weights get modified here
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 
     return loss
