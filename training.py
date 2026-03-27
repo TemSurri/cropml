@@ -31,6 +31,9 @@ def build_simple_segmentation_model():
     model = tf.keras.Model(inputs=inputs, outputs=outputs)
     return model
 
+def build_Unet_segmentation_model():
+    pass
+
 #this is the loss function using BCE
 def masked_bce_loss(y_true, y_pred, valid_mask):
     """
@@ -71,10 +74,10 @@ def train_step(model, optimizer, batch_images, batch_masks, batch_valid_masks):
     Runs one training step on one batch.
 
     Steps:
-    1. forward pass
+    1. forward pass (prediction)
     2. compute loss
     3. compute gradients
-    4. update weights
+    4. update weights with the optimizer
     """
     with tf.GradientTape() as tape:
         predictions = model(batch_images, training=True)

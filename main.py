@@ -6,18 +6,20 @@ from training import (
     val_step
 )
 
-BATCH_SIZE = 2
-EPOCHS = 5
+BATCH_SIZE = 8
+EPOCHS = 1
 
 # build metadata batches
-train_samples_small = train_samples[:32]
-val_samples_small = val_samples[:16]
+train_samples = train_samples[:1024]
+val_samples = val_samples[:512]
 
-train_batches = get_metadata_batches(train_samples_small, BATCH_SIZE)
-val_batches = get_metadata_batches(val_samples_small, BATCH_SIZE)
+train_batches = get_metadata_batches(train_samples, BATCH_SIZE)
+val_batches = get_metadata_batches(val_samples, BATCH_SIZE)
 
 model = build_simple_segmentation_model()
 optimizer = create_optimizer(learning_rate = 1e-4)
+
+lowest_val_loss = 10000
 
 for epoch in range(EPOCHS):
     print(f"\nEpoch {epoch+1}/{EPOCHS}")
@@ -61,6 +63,11 @@ for epoch in range(EPOCHS):
         val_losses.append(float(val_loss))
 
     avg_val_loss = sum(val_losses) / len(val_losses)
+
+    if avg_val_loss < lowest_val_loss:
+        lowest_val_loss = avg_val_loss
+        model.save_weights("bestCNN_model.weights.h5")
+        print("New best model saved with val loss:", lowest_val_loss)
 
     print("avg train loss:", avg_train_loss)
     print("avg val loss:", avg_val_loss)
